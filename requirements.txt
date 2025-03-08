@@ -1,0 +1,5 @@
+Python 3.x: Projenin çalışması için Python 3 sürümü gereklidir. Sürüm -> 3.12.7
+NumPy: Sayısal hesaplamalar ve dizi işlemleri için. Sürüm -> 1.26.4
+Pandas: Veri okuma, işleme ve analizi için. Sürüm -> 2.2.2
+Scikit-Learn: Gaussian Naive Bayes modelinin uygulanması ve değerlendirilmesi için. Sürüm -> 1.5.1
+Matplotlib: Sonuçların görselleştirilmesi için. Sürüm -> 3.9.2
