@@ -9,4 +9,4 @@ bir özellik var mı diye kontrol ettim. Sonrasında veri setini test ve train o
 derste yaptığımız örnekler ve internetteki çeşitli kaynaklara dayanarak bir kod yazdım.
 
   Sonuçlar kısmında, her iki model de aynı sonucu verdi lakin süre bakımından aralarında yaklaşık
-olarak 200 kat fark çıktı. Bu durum sklearn modelinin çok optimize olduğunu gösterdi.
+olarak 200 kat fark çıktı. Hız bakımından sklearn > custom . Bu durum sklearn modelinin çok optimize olduğunu gösterdi.
