@@ -1,0 +1,12 @@
+Bu çalışma YZM212 laboratuvar dersinin 2. çalışmasıdır. İkili sınıflandırma modeli olan Lojistik Regresyon modeli kullanılmıştır. HALİL İBRAHİM AKBAŞ 23291264
+
+Sonuçlar ve İncelenmeler:
+  İlk olarak veri ön işleme aşamalarını yaptım. Class sınıfıyla 0 a yakın doğrusal ilişkiye sahip
+bir özellik var mı diye kontrol ettim. Sonrasında veri setini test ve train olarak 2 ye ayırıp e-
+ğitim verilerinin birimleri farklı olduğundan verilere MixMaxScaler normalleştirmesi uyguladım.
+
+  Lojistik regresyon modelini baştan yazarken sklearn kütüphanesinin web sitesini inceledim,
+derste yaptığımız örnekler ve internetteki çeşitli kaynaklara dayanarak bir kod yazdım.
+
+  Sonuçlar kısmında, her iki model de aynı sonucu verdi lakin süre bakımından aralarında yaklaşık
+olarak 200 kat fark çıktı. Bu durum sklearn modelinin çok optimize olduğunu gösterdi.
