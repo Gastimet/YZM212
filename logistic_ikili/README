@@ -19,12 +19,14 @@ ve en son olarak predict(Belirli bir eşik değer üstü için 1 altı için 0 d
 
 Fonksiyon ilk olarak bias var mı yok mu onu kontrol eder.
 Sonrasında başlangıç ağırlıklarını, yani tetayı atar (farklı yöntemler kullanılabilir). Ondan sonra kaç kez iterasyon yapılması
-(1 iterasyon gradient descent algoritmasında modelin parametrelerini bir kez güncellemesi demektir) istenmişse o kadar kez bir döngü
-içerisinde lineer kombinasyonlar (farklı değişkenlerin ağırlıklandırılmış toplamı) hesaplanır ve bulunan sayısal değer sigmoid fonksiyonuna 
-parametre olarak verilir (h). Sonrasında gradyan hesaplaması yapılır. Gradyan formulü eğitim verilerinin transpozu (X.T) ile model tahminleri ile gerçek etiketler arasındaki farkın (h-y)
-nokta çarpımı (dot product) hesaplanır. Son olarak, bulunan gradyan ile hiperparametre öğrenme hızı çarpılır ve ağırlıklar matrisinden çıkartılır. Bu işlemleri iterasyon sayısı kadar yapılır.
+istenmişse o kadar kez bir döngü içerisinde lineer kombinasyonlar hesaplanır ve bulunan sayısal değer sigmoid fonksiyonuna 
+parametre olarak verilir (h). Sonrasında gradyan hesaplaması yapılır. Gradyan formulü eğitim verilerinin transpozu (X.T) ve model tahminleri ile gerçek etiketler arasındaki farkın (h-y)
+nokta çarpımı hesaplanır özellik sayısına(y) bölünür. Son olarak, bulunan gradyan ile hiperparametre öğrenme hızı çarpılır ve ağırlıklar matrisinden çıkartılır. Bu işlemleri iterasyon sayısı kadar yapılır.
 
-
+iterasyon =  gradient descent algoritmasında modelin parametrelerini bir kez güncellemesi.
+lineer kombinasyon = farklı değişkenlerin ağırlıklandırılmış toplamı.
+gradyan formül = np.dot(X.T, (h - y)) / y.size 
+ağırlık güncelleme = self.theta -= self.lr * gradient
 
 
 
