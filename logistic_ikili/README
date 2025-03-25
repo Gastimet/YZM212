@@ -1,12 +1,60 @@
-Bu çalışma YZM212 laboratuvar dersinin 2. çalışmasıdır. İkili sınıflandırma modeli olan Lojistik Regresyon modeli kullanılmıştır. HALİL İBRAHİM AKBAŞ 23291264
+🧠 Lojistik Regresyon Sınıflandırma Modeli 📊
 
-Sonuçlar ve İncelenmeler:
-  İlk olarak veri ön işleme aşamalarını yaptım. Class sınıfıyla 0 a yakın doğrusal ilişkiye sahip
-bir özellik var mı diye kontrol ettim. Sonrasında veri setini test ve train olarak 2 ye ayırıp e-
-ğitim verilerinin birimleri farklı olduğundan verilere MixMaxScaler normalleştirmesi uyguladım.
+📝 Proje Açıklaması
+Bu çalışma, YZM212 Laboratuvar Dersinin 2. çalışması kapsamında gerçekleştirilmiştir. Projede ikili sınıflandırma problemini çözmek için Lojistik Regresyon algoritması kullanılmıştır. 
 
-  Lojistik regresyon modelini baştan yazarken sklearn kütüphanesinin web sitesini inceledim,
-derste yaptığımız örnekler ve internetteki çeşitli kaynaklara dayanarak bir kod yazdım.
+👤 Proje Sahibi
+Ad Soyad: Halil İbrahim Akbaş
+Öğrenci Numarası: 23291264
 
-  Sonuçlar kısmında, her iki model de aynı sonucu verdi lakin süre bakımından aralarında yaklaşık
-olarak 200 kat fark çıktı. Hız bakımından sklearn > custom . Bu durum sklearn modelinin çok optimize olduğunu gösterdi.
+**Lojistik Regresyon Kodunun Açıklanması ve Çalışma Şekli:
+
+LogisticRegression sınıfımızdan önce sigmoid aktivasyon fonksiyonumuzu tanımladık.
+
+LogisticRegression (LR) sınıfı bu 6 temel fonksiyonlardan oluşur : __init__ (Sınıfı başlatmak için), add_intercept (İstenirse ön yargı, bias, eklemek için), cost_function (hatayı hesaplamak için, logaritmik),
+fit (Modelin gradyanının hesaplandığı ve ağırlıkların güncellendiği fonksiyon), predict_prob(Tahmin olasılıklarını hesaplamak için Sigmoid fonksiyonunu kullanır), 
+ve en son olarak predict(Belirli bir eşik değer üstü için 1 altı için 0 döndürür).
+
+**fit(X,y) fonksiyonunun derinlemesine analizi: 
+
+Fonksiyon ilk olarak bias var mı yok mu onu kontrol eder.
+Sonrasında başlangıç ağırlıklarını, yani tetayı atar (farklı yöntemler kullanılabilir). Ondan sonra kaç kez iterasyon yapılması
+(1 iterasyon gradient descent algoritmasında modelin parametrelerini bir kez güncellemesi demektir) istenmişse o kadar kez bir döngü
+içerisinde lineer kombinasyonlar (farklı değişkenlerin ağırlıklandırılmış toplamı) hesaplanır ve bulunan sayısal değer sigmoid fonksiyonuna 
+parametre olarak verilir (h). Sonrasında gradyan hesaplaması yapılır. Gradyan formulü eğitim verilerinin transpozu (X.T) ile model tahminleri ile gerçek etiketler arasındaki farkın (h-y)
+nokta çarpımı (dot product) hesaplanır. Son olarak, bulunan gradyan ile hiperparametre öğrenme hızı çarpılır ve ağırlıklar matrisinden çıkartılır. Bu işlemleri iterasyon sayısı kadar yapılır.
+
+
+
+
+
+
+Peki, ben bu çalışmada neler yaşadım ? (YZ geliştirmeli)
+🔍 Veri Ön İşleme Aşamaları
+
+1. Veri Analizi 🕵️‍♂️
+- Veri setindeki özelliklerin birbiriyle olan ilişkilerini inceledim
+- "Class" değişkeni ile diğer özellikler arasındaki korelasyonları kontrol ettim
+- 0'a yakın doğrusal ilişkiye sahip özellikleri belirledim
+
+2. Veri Hazırlama 🧼
+- Veri setini eğitim (train) ve test olmak üzere iki kısma ayırdım
+- Farklı birimlere sahip özelliklerin ölçeklendirilmesi için "MinMaxScaler" normalizasyon yöntemini kullandım
+
+🏆 Performans Karşılaştırması
+
+Sonuçlar 📊
+- Doğruluk (Accuracy): Her iki model de aynı sonucu verdi ✅
+- Hız Performansı: Sklearn modeli, custom modele göre yaklaşık **200 kat** daha hızlı 🚀
+
+Çıkarımlar 💡
+- Kendi modelimin bu kadar yavaş olması numpy fonksiyonlarını optimize kullanmamam ve sabit bir iterasyon sayısına sahip olmam olabilir. Aynı şekilde kullandığım gradyan decent algoritması
+  çok temeldi. Belki erken durdurma gibi teknikler, gelişmiş bir gradient decent algoritması veya AdamW optimizer gibi öğrenme hızı optimize ediciler kullanmak kendi modelimin hızını artırabilir.
+
+🌟 Öğrenilen Dersler
+- Makine öğrenmesi modellerinin kodlanması
+- Veri ön işleme teknikleri
+- Farklı yaklaşımlarla aynı problemi çözme becerisi
+
+📌 Not
+Bu proje, teorik bilgilerin pratiğe dökülmesinde önemli bir adım olmuştur. 🎓
