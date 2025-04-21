@@ -1,0 +1,18 @@
+LucasBN'in GitHub reposundaki özdeğer hesaplama yöntemini inceleyip uygulayalım ve sonuçları NumPy'ın hazır eig fonksiyonuyla karşılaştıralım.
+LucasBN'in Yöntemi Nedir ?:
+GitHub'daki Eigenvalues-and-Eigenvectors reposunda kullanılan yöntem QR algoritmasıdır. Bu algoritma matrislerin özdeğerlerini bulmak için iteratif bir yöntemdir.
+QR algoritmasının temel adımları:
+
+1) A matrisini Q (ortogonal) ve R (üst üçgensel) matrislerine ayrıştırma
+2) A matrisini R×Q olarak yeniden oluşturma
+3) İstenilen yakınsama elde edilene kadar bu adımları tekrarlama
+
+Yeterli iterasyon sonunda matris, üst üçgensel forma yakınsar ve köşegen elemanları matrisin özdeğerlerini verir. (https://people.math.harvard.edu/~knill/teaching/math19b_2011/handouts/lecture28.pdf)
+
+Uygulamayı gerçekleştirdim ve zamansal sonuçları yazacağım:
+A = np.array([[6, 1, -1],
+              [0, 7, 0],
+              [3, -1, 2]], dtype=float) matrisi için yaptım.
+              
+Lucas'ın yönteminden sonuç almam 0.00046 sn sürerken numpy'dan import ettiğim hazır eig fonksiyonunu kullandığımda 0.00021 sn sürdü.
+Yani, sonuç olarak, numpy hazır fonksiyonu Lucas'ın kendi yönteminden 2 kat daha hızlı bir şekilde matrisin özvektörleri bulabiliyor.
