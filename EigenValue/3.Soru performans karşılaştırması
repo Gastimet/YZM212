@@ -1,4 +1,4 @@
-LucasBN'in GitHub reposundaki özdeğer hesaplama yöntemini inceleyip uygulayalım ve sonuçları NumPy'ın hazır eig fonksiyonuyla karşılaştıralım.
+LucasBN'in GitHub reposundaki (https://github.com/LucasBN/Eigenvalues-and-Eigenvectorsözdeğer) hesaplama yöntemini inceleyip uygulayalım ve sonuçları NumPy'ın hazır eig fonksiyonuyla karşılaştıralım.
 LucasBN'in Yöntemi Nedir ?:
 GitHub'daki Eigenvalues-and-Eigenvectors reposunda kullanılan yöntem QR algoritmasıdır. Bu algoritma matrislerin özdeğerlerini bulmak için iteratif bir yöntemdir.
 QR algoritmasının temel adımları:
