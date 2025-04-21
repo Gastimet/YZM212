@@ -15,4 +15,4 @@ A = np.array([[6, 1, -1],
               [3, -1, 2]], dtype=float) matrisi için yaptım.
               
 Lucas'ın yönteminden sonuç almam 0.00046 sn sürerken numpy'dan import ettiğim hazır eig fonksiyonunu kullandığımda 0.00021 sn sürdü. İkisinde de özdeğerler: [3 , 5 , 7] olarak bulundu.
-Yani, sonuç olarak; numpy hazır fonksiyonu eig, Lucas'ın kendi yönteminden yaklaşık 2 kat daha hızlı bir şekilde matrisin özdeğerlerini bulabiliyor.
+Yani, sonuç olarak; numpy hazır fonksiyonu eig, Lucas'ın kendi yönteminden yaklaşık 2 kat daha hızlı bir şekilde isteinlen matrisin özdeğerlerini bulabiliyor.
