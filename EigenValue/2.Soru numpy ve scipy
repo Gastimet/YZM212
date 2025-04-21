@@ -1,0 +1,46 @@
+Numpy'ın linalg modülününden .eig fonksiyonunu kullanarak eigenvalue hesaplamak gayet basit bir işlemdir. Adım adım açıklamaya başlayacağız.
+
+İlk olarak, "np.linalg.eig(A)" fonksiyonu nedir ?(Dokümantasyona dayanarak):
+- eig fonksiyonu, numpy linalg modülü içerisinde bulunan ve verilen "kare" nxn tipindeki matrisin özdeğer ve "sağ" özvektörlerini, bir liste olarak, sırasıyla döndüren bir fonksiyondur.
+- Parametre olarak bir kare matris alıyor.
+- Eğer özdeğer hesaplama işleme bir sayıya yakınsamaz ise "LinAlgError" hatası verir.
+
+Kaynak kodunna bakarak bu fonksiyon nasıl çalışır ?:
+a, wrap = _makearray(a)
+Bu satırda, giriş a'yı bir NumPy dizisine çeviriyor ve orijinal girişi sarmalamak için bir sarmalayıcı fonksiyon elde ediyor.
+
+_assert_stacked_square(a)
+Bu satır, giriş matrisinin kare olduğunu doğrular. Özdeğer hesaplamaları sadece kare matrisler için tanımlıdır.
+
+_assert_finite(a)
+Bu satır, giriş matrisinin sonlu değerler içerdiğini kontrol eder (NaN veya sonsuz değerler içermediğinden emin olur).
+
+t, result_t = _commonType(a)
+Bu satır, giriş matrisinin veri tipini belirler ve sonuç için uygun veri tipini saptar.
+
+signature = 'D->DD' if isComplexType(t) else 'd->DD'
+Bu satır, kullanılacak LAPACK rutininin imzasını belirler. Eğer giriş kompleks tipteyse 'D->DD' (kompleks giriş, kompleks çıkış), değilse 'd->DD' (gerçek giriş, kompleks çıkış) kullanılır.
+
+with errstate(call=_raise_linalgerror_eigenvalues_nonconvergence,invalid='call', over='ignore', divide='ignore', under='ignore'):
+    w, vt = _umath_linalg.eig(a, signature=signature)
+Bu blok, NumPy'ın hata durumlarını yönetir. Özdeğer hesaplaması yakınsamazsa özel bir hata fırlatılır. _umath_linalg.eig fonksiyonu LAPACK rutinlerini çağırarak asıl hesaplamayı yapar.
+w özdeğerleri, vt özvektörleri içerir.
+
+  if not isComplexType(t) and all(w.imag == 0.0):
+        w = w.real
+        vt = vt.real
+        result_t = _realType(result_t)
+    else:
+        result_t = _complexType(result_t)
+Bu if bloğu, sonuçların tipini belirler. Eğer giriş gerçek sayılardan oluşuyorsa ve hesaplanan özdeğerlerin sanal kısmı yoksa (tümü gerçek sayılarsa), sonuçları gerçek sayı tipine dönüştürür. Aksi takdirde, sonuçlar kompleks sayı olarak kalır.
+
+vt = vt.astype(result_t, copy=False)
+Bu satır, özvektörlerin veri tipini belirlenen sonuç tipine dönüştürür.
+
+return EigResult(w.astype(result_t, copy=False), wrap(vt))
+Son olarak, özdeğerleri ve özvektörleri uygun tipte ve yapıda bir EigResult namedtuple olarak döndürür. Özvektörler, giriş verisiyle aynı formatta olması için wrap fonksiyonu ile sarmalanır.
+
+Bu fonksiyon, lineer cebirdeki özdeğer problemlerini çözmek için kullanılır ve temelinde LAPACK kütüphanesinin rutinlerini kullanarak bu hesaplamaları gerçekleştirir. (Claude 3.7 Sonet) tarafından açıklamasını istedim.
+
+Sonuç olarak fonksiyon bu şekilde çalışıyor. Kodun altyapısını görmek aslında bir fonksiyon yazmanın bile ne kadar karmaşık olabileceğini gösterdi bana.
+Her ne kadar import edip kullansak da çalışma mantığını öğrenmenin çok faydalı olduğunu düşünüyorum.
