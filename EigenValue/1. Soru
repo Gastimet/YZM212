@@ -1,0 +1,73 @@
+# Makine Öğrenmesinde Matris Manipülasyonu, Özdeğerler ve Özvektörler
+
+## Temel Tanımlar
+
+Matris: Matris, 2 boyutlu bir dizidir. Genellikle verileri ya da dönüşümleri göstermede kullanılır. Makine öğrenmesinde veriler matrisler olarak temsil edilebilir.
+
+Özdeğer: Bir kare matrisin lineer dönüşümünün ölçekleme faktörüdür. A matrisinin bir özdeğeri λ ise, Av = λv eşitliğini sağlayan sıfır olmayan bir v vektörü vardır.
+Özvektor: Bir lineer dönüşüm sırasında yalnızca ölçeklenen (yönü değişmeyen) vektördür. A matrisinin özvektörü v ise, Av = λv eşitliğini sağlar; burada λ ilgili özdeğerdir.
+
+## Makine Öğrenmesi ile İlişkisi
+
+Matris manipülasyonu, özdeğerler ve özvektörler makine öğrenmesinde temel kavramlar olup birçok algoritmanın çalışma prensibini oluşturur. Bu matematiksel yapıların makine öğrenmesi ile ilişkisi şu şekildedir:
+
+1. Veri Ön İşleme: Normalizasyon, standardizasyon ve özellik ölçeklendirme işlemleri matris operasyonları kullanılarak gerçekleştirilir [2].
+2. Doğrusal Regresyon: Doğrusal regresyon modellerinde katsayılar, en küçük kareler yöntemi kullanılarak matris cebirsel işlemlerle bulunur: β = (X^TX)^(-1)X^Ty.
+3. Gradyan İniş: Optimizasyon algoritmaları matris işlemlerini kullanarak parametreleri günceller.
+
+### Özdeğerler, Özvektörler ve Makine Öğrenmesi
+
+Özdeğerler ve özvektörler, veri dönüşümlerini anlamada ve boyut indirgeme yöntemlerinde kritik rol oynar [3] Özdeğer ve özvektör değerlerini kullanıdığımız yöntem örnekleri:
+
+### 1. Temel Bileşen Analizi (PCA)
+
+PCA, veri setindeki varyansı en iyi açıklayan özvektörleri bularak boyut indirgeme yapar. Adımları şunlardır:
+
+- Veri matrisinin kovaryans matrisini hesaplama
+- Kovaryans matrisinin özdeğerlerini ve özvektörlerini bulma
+- Özdeğerleri büyükten küçüğe sıralama ve karşılık gelen özvektörleri seçme
+- Veriyi seçilen özvektörler üzerine projekte etme
+
+Nizar [3] medium makalesinde, PCA'nın yüksek boyutlu görüntü verileri ve genetik verilerde boyut indirgeme için kullanışlı olduğunu söylüyor.
+
+### 2. Tekil Değer Ayrışımı (SVD)
+
+SVD, matris faktörizasyonu için temel bir yöntemdir ve şu alanlarda kullanılır:
+
+- Gürültü Azaltma: Düşük rankli yaklaşımlar kullanarak verideki gürültüyü azaltma
+- Tavsiye Sistemleri: Kullanıcı-öğe matrisini ayrıştırarak gizli faktörleri bulma
+- Latent Semantik Analiz: Doküman-terim matrislerinde gizli anlamsal ilişkileri çıkarma
+
+Nizar [3] medium makalesinde, SVD'nin özellikle büyük ve seyrek matrislerde etkili olduğunu vurguluyor.
+
+### 3. Spektral Kümeleme
+
+Spektral kümeleme, graf Laplacian matrisinin özvektörlerini kullanarak veri noktalarını kümelere ayırır:
+
+- Benzerlik matrisinden Laplacian matrisi oluşturma
+- Laplacian matrisinin özvektörlerini hesaplama
+- En küçük özdeğerlere karşılık gelen özvektörleri kullanarak verileri kümeleme
+- Spektral kümeleme özellikle doğrusal olmayan veri yapılarında etkindir [3].
+
+### 4. Doğrusal Diskriminant Analizi (LDA)
+
+LDA, sınıflandırma problemlerinde sınıflar arası ayrımı maksimize eden projeksiyon vektörlerini bulmak için özvektörlerden faydalanır [1].
+
+### 5. Yüz Tanıma ve Eigenfaces
+
+Özvektörler, yüz tanıma sistemlerinde "eigenfaces" olarak kullanılır. Bu yöntemde, yüz görüntüleri bir vektör uzayında temsil edilir ve bu uzayın temel bileşenleri (eigenfaces) hesaplanır.
+Yeni bir yüz görüntüsü, bu eigenfaces'in doğrusal kombinasyonu olarak ifade edilebilir [3].
+
+## Sonuç
+
+Matris manipülasyonu, özdeğerler ve özvektörler, makine öğrenmesinin matematiksel temellerini oluşturan kritik bileşenlerdir.
+Bu matematiksel araçlar, veri boyutunun indirgenmesi, özellik çıkarımı, kümeleme ve sınıflandırma gibi temel makine öğrenmesi görevlerinde kullanılır. 
+Matris cebirinin doğru anlaşılması, makine öğrenmesi algoritmalarının daha etkili uygulanmasını ve yorumlanmasını sağlar.
+
+## Kaynakça
+
+[1] Bora, B. (2022). Matrices in Machine Learning. Medium. https://medium.com/@bibhutibora123/matrices-in-machine-learning-5a1dbec74dc9
+
+[2] Sruthy, S. (2022). Matrix Operations and Applications in Machine Learning. Medium. https://medium.com/@sruthy.sn91/matrix-operations-and-applications-in-machine-learning-1d6281ac38ab
+
+[3] Nizar, M. (2022). Eigenvalues and Eigenvectors and Their Use in Machine Learning and AI. Medium. https://medium.com/aimonks/eigenvalues-and-eigenvectors-and-their-use-in-machine-learning-and-ai-c7a5431ae388
