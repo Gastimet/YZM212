@@ -1,5 +1,5 @@
-Bu hafta "En Küçük Kareler" yöntemiyle lineer regresyon modeli geliştirme üzerine çalıştık. Öğrendiğimiz formülleri kodda uygulayarak kendi geliştirdiğmiiz model ile
-scikitlearn kütüphanesinden aldığımız hazır fonksiyonun "Ortalama Karesel Hata"larını karşılaştırdık.
+Bu hafta "En Küçük Kareler" yöntemiyle lineer regresyon modeli geliştirme üzerine çalıştık. Öğrendiğimiz formülleri kodda uygulayarak kendi geliştirdiğimiz model ile
+scikitlearn kütüphanesinden aldığımız hazır modelin "Ortalama Karesel Hata"larını karşılaştırdık.
 
 
 
