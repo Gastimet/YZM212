@@ -23,11 +23,9 @@ y_sapka = theta_0 + theta_1*X ya da kodumuzda yaptığımız gibi direkt y_sapka
 theta_0: Sabit (intercept)
 theta_1: Bağımsız değişkenin katsayısı
 
-
 4. Maliyet Fonksiyonu (Cost Function)
 
 Modelin başarısı, Mean Squared Error (MSE) ile ölçülür:
-
 
 MSE = (1 / n) * Σ (y_i - y_sapka_i)^2
 
