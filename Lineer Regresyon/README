@@ -42,8 +42,8 @@ Yukarıdaki adımlarla WLSE kodunun çalışma sürecini açıklamış olduk.
 
 Karşılaştırma:
 Sckit_learn kullanıdığımız model ile kendi WLSE modelimizin MSE değeri aynı ve 9.1643 değerinde gelmiştir. Bu durumdan sckitlearn kütüphanesinde de lineer regresyon modeli oluştururken LSE kullanıyorlar mı
-sorusu aklıma geldi onun için kaynaklarını inceledim (https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LinearRegression.html). Scikitlearn sitesinde LinearRegression() modeli için "Ordinary least squares Linear Regression" denmiş bu da gerçekten de
-LSE kullanmışlar demektir.
+sorusu aklıma geldi onun için kaynaklarını inceledim (https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LinearRegression.html). Scikitlearn sitesinde LinearRegression() modeli için
+"Ordinary least squares Linear Regression" denmiş bu da gerçekten de LSE kullanmışlar demektir.
 
 Yorum:
 İki model de 9.1643 MSE skoru sonucunu verdi. MSE skoru ne kadar düşükse modelin tahminleri gerçek verilere o kadar yakın olur.
