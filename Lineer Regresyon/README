@@ -1,0 +1,50 @@
+Bu hafta "En Küçük Kareler" yöntemiyle lineer regresyon modeli geliştirme üzerine çalıştık. Öğrendiğimiz formülleri kodda uygulayarak kendi geliştirdiğmiiz model ile
+scikitlearn kütüphanesinden aldığımız hazır fonksiyonun "Ortalama Karesel Hata"larını karşılaştırdık.
+
+
+
+
+Kodun Detaylı Açıklaması:
+
+1. Veri Setinin Hazırlanması
+
+- Bağımsız değişkenler (X)ve bağımlı değişken (y) olarak ikiye ayrılır.
+- Modelde sabit terim (bias/intercept) eklemek için tasarım matrisine bir sütun daha ilave edilir; böylece hem θ₀ (sabit katsayı) hem de θ₁ (eğim) hesaplanabilir.
+
+2. Normal Denklemler (Least Squares Formülü)
+
+En küçük kareler yöntemi, gerçek değerler ile model tahminleri arasındaki hata karelerinin toplamını minimize eder. Ağırlıklar (θ) şu formülle bulunur:
+θ = (X^T X)^{-1} X^T y
+
+3. Modelin Tahmin Yapması
+
+Hesaplanan parametreler kullanılarak yeni$X değerleri için tahmin şöyle yapılır:
+
+y_sapka = theta_0 + theta_1*X ya da kodumuzda yaptığımız gibi direkt y_sapka = X_withOnes*theta_1 şeklinde de gösterilebilir.
+
+theta_0: Sabit (intercept)
+theta_1: Bağımsız değişkenin katsayısı
+
+
+4. Maliyet Fonksiyonu (Cost Function)
+
+Modelin başarısı, Mean Squared Error (MSE) ile ölçülür:
+
+
+MSE = (1 / n) * Σ (y_i - y_sapka_i)^2
+
+y_i: Gerçek değerler
+y_sapka: Modelin tahmin ettiği değerler
+n: Veri noktası sayısı
+
+Yukarıdaki adımlarla WLSE kodunun çalışma sürecini açıklamış olduk.
+
+
+Karşılaştırma:
+Sckit_learn kullanıdığımız model ile kendi WLSE modelimizin MSE değeri aynı ve 9.1643 değerinde gelmiştir. Bu durumdan sckitlearn kütüphanesinde de lineer regresyon modeli oluştururken LSE kullanıyorlar mı
+sorusu aklıma geldi onun için kaynaklarını inceledim (https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LinearRegression.html). "Ordinary least squares Linear Regression" demişler yani gerçekten de
+LSE kullanmışlar.
+
+Yorum:
+İki model de 9.1643 MSE skoru sonucunu verdi. MSE skoru ne kadar düşükse modelin tahminleri gerçek verilere o kadar yakın olur.
+y değerlerimiz min -3.6 maksimumum 105 değerlerinde. Bu yüzden başarılı denilebilir. Modelimiz, gerçek değerlerden yaklaşık +-3 kadar sapmaya sahip olmakta.
