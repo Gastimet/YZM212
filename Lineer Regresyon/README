@@ -2,8 +2,6 @@ Bu hafta "En Küçük Kareler" yöntemiyle lineer regresyon modeli geliştirme �
 scikitlearn kütüphanesinden aldığımız hazır modelin "Ortalama Karesel Hata"larını karşılaştırdık.
 
 
-
-
 Kodun Detaylı Açıklaması:
 
 1. Veri Setinin Hazırlanması
