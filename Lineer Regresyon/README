@@ -48,3 +48,8 @@ LSE kullanmışlar.
 Yorum:
 İki model de 9.1643 MSE skoru sonucunu verdi. MSE skoru ne kadar düşükse modelin tahminleri gerçek verilere o kadar yakın olur.
 y değerlerimiz min -3.6 maksimumum 105 değerlerinde. Bu yüzden başarılı denilebilir. Modelimiz, gerçek değerlerden yaklaşık +-3 kadar sapmaya sahip olmakta.
+
+Kaynakça:
+Scikit-learn contributors. (n.d.). LinearRegression. In Scikit-learn Documentation (Version 1.2.2). Retrieved May 5, 2025, from https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LinearRegression.html
+Linear Regression using Least Squares. In GitHub Repository. Retrieved May 5, 2025, from https://github.com/chasinginfinity/ml-from-scratch/blob/master/01%20Linear%20Regression%20using%20Least%20Squares/Linear%20Regression%20using%20Least%20Squares.ipynb
+
