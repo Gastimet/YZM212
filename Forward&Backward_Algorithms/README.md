@@ -86,6 +86,7 @@ Her iki algoritma da (Gradient Descent ve IRLS) Python ve NumPy kullanılarak s�
 1.  **Gradient Descent Modelinin Başarısızlığı:** Notebook'taki test sonuçları, Gradient Descent ile eğitilen modelin son derece kötü performans gösterdiğini ortaya koymuştur (`accuracy: 0.15`). Model, tüm test örneklerini çoğunluk sınıfı olan "0" olarak tahmin etmeye meyilliydi. Herhangi bir çözüm bulamadım. Araştırdığımda bunun temel nedenlerinin:
     * **Öğrenme Oranının (Learning Rate) Hassasiyeti:** Gradient Descent, öğrenme oranına çok duyarlıdır. Optimal bir oran bulunamazsa, model ya çok yavaş yakınsar ya da "sıçramalar" yaparak minimum noktayı bulamaz.
     * **Özelliklerin Ölçeklendirilmemesi:** Veri setindeki farklı ölçeklerdeki(int,object) özellikler, gradyanın bazı yönlerde çok büyük, bazı yönlerde ise çok küçük olmasına neden olarak optimizasyonu zorlaştırır.
+    olduğunu gördüm. 
 2.  **Sayısal Kararlılık Sorunları:** Sigmoid fonksiyonunun hesaplanması sırasında, `np.exp(-z)` ifadesinde `z`'nin çok büyük negatif değerler alması durumunda "overflow" hatası alınmıştır. Bu sorun, `scipy.special.expit` gibi sayısal olarak daha kararlı bir sigmoid fonksiyonu kullanılarak çözülmüştür.
 
 ### Model Performanslarının Karşılaştırılması
