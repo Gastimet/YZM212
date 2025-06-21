@@ -1,4 +1,4 @@
-# Lojistik Regresyon Modellerinin İncelenmesi: Gradient Descent ve IRLS
+# Lojistik Regresyon Modellerinin İncelenmesi: Gradient Descent ve IRLS (YZ Yazımı)
 
 Bu proje, "Framingham Kalp Hastalığı" veri setini kullanarak lojistik regresyon modelinin iki farklı optimizasyon algoritması ile sıfırdan (from-scratch) implementasyonunu içermektedir: **Gradient Descent** ve **Iterative Reweighted Least Squares (IRLS)**. Projenin amacı, bu iki algoritmanın teorik altyapısını açıklamak, Python ile implementasyonunu göstermek ve modellerin performansını karşılaştırmaktır.
 
